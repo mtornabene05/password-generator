@@ -15,6 +15,12 @@ function optionPrompt() {
   numbersConfirm();
   specialCharactersConfirm();
 }
+  
+function lengthConfirm () {
+  var length = window.prompt("How many characters should the password be?");
+
+  if (length >= 8 )
+}
 
 function uppercaseConfirm () {
  var uppercaseConfirm = window.confirm("Would you like the password to include uppercase letters?");
