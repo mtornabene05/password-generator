@@ -1,7 +1,7 @@
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var numbers = "1234567890";
-var specialCharacters = "!@#$%^&*?"
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 
 var generateBtn = document.querySelector("#generate");
 
@@ -64,19 +64,60 @@ function optionPrompt() {
   return selections
 }
 
+function random (array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomCharacter = array[randomIndex];
+  return randomCharacter;
+}
+
 function generatePassword () {
   var userChoices = optionPrompt()
 
-  console.log(userChoices)
-}
+  //password//
+  var results = []
+  //all user choices//
+  var allOptions = []
+  //at least one character of each user choice//
+  var oneOfEach = []
 
+  if (userChoices.uppercaseConfirm) {
+    allOptions = allOptions.concat(uppercase);
+    oneOfEach.push(random(uppercase))
+  };
+
+  if (userChoices.lowercaseConfirm) {
+    allOptions = allOptions.concat(lowercase);
+    oneOfEach.push(random(lowercase))
+  };
+
+  if (userChoices.numbersConfirm) {
+    allOptions = allOptions.concat(numbers);
+    oneOfEach.push(random(numbers))
+  };
+
+  if (userChoices.specialCharactersConfirm) {
+    allOptions = allOptions.concat(specialCharacters);
+    oneOfEach.push(random(specialCharacters))
+  };
+
+  for (var i = 0; i < userChoices.length; i++) {
+    var pickedCharacter = random(allOptions);
+    results.push(pickedCharacter);
+  };
+
+  for (var i = 0; i < oneOfEach.length; i++) {
+    results[i] = oneOfEach[i]
+  };
+
+  return results.join("");
+    
+}
 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-}
+};
 
 generateBtn.addEventListener("click", writePassword);
