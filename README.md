@@ -25,7 +25,7 @@ This is a screenshot of screen at initial deployment.
 
 These are screenshots of the prompts.
 
-![Screenshot](./assets/images/prompt.png)
+![Screenshot](./assets/images/prompt1.png)
 ![Screenshot](./assets/images/length.png)
 ![Screenshot](./assets/images/uppercase.png)
 ![Screenshot](./assets/images/lowercase.png)
