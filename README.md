@@ -1,9 +1,3 @@
-# Password Generator
-
-description of app
-screenshot of app
-link of deployment
-
 # Random Password Generator
 
 ## Description
